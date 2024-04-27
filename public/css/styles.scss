@@ -1,0 +1,19 @@
+// Define a mixin to generate dynamic height based on class name
+@mixin dynamic-height($height) {
+  height: $height + px;
+}
+
+// Use the mixin with a class selector
+.height-px {
+  @each $value in 50, 100, 150, 200, 400 {
+    // Define your desired height values
+    &-#{$value} {
+      @include dynamic-height($value); // Apply mixin with dynamic height
+    }
+  }
+}
+
+// Example usage:
+.my-element {
+  @include height-px;
+}
